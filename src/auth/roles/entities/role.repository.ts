@@ -8,7 +8,7 @@ import { RoleDto } from '../dto/role.dto';
 
 @EntityRepository(Role)
 export class RoleRepository extends Repository<Role> {
-  async add(createRoleDto: RoleDto): Promise<RoleDto> {
+  async createRole(createRoleDto: RoleDto): Promise<RoleDto> {
     const { name } = createRoleDto;
 
     const role = new Role();

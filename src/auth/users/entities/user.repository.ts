@@ -12,7 +12,7 @@ import { UpdateUserDto } from '../dto/update-user.dto';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
-  async add(createUserDto: CreateUserDto): Promise<SafeUserDto> {
+  async createUser(createUserDto: CreateUserDto): Promise<SafeUserDto> {
     const { email, password } = createUserDto;
 
     const user = new User();
@@ -34,7 +34,7 @@ export class UserRepository extends Repository<User> {
     }
   }
 
-  async modify(user: User, updateUserDto: UpdateUserDto): Promise<SafeUserDto> {
+  async updateUser(user: User, updateUserDto: UpdateUserDto): Promise<SafeUserDto> {
     const { email, password } = updateUserDto;
 
     if (updateUserDto.email) user.email = email;

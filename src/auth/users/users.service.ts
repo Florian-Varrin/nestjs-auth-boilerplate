@@ -21,7 +21,7 @@ export class UsersService {
   ) {}
 
   async create(createUserDto: CreateUserDto): Promise<SafeUserDto> {
-    return await this.userRepository.add(createUserDto);
+    return await this.userRepository.createUser(createUserDto);
   }
 
   async findAll(): Promise<SafeUserDto[]> {
@@ -47,7 +47,7 @@ export class UsersService {
   async update(id: number, updateUserDto: UpdateUserDto): Promise<SafeUserDto> {
     const user = <User>await this.findOne(id, true, false);
 
-    return await this.userRepository.modify(user, updateUserDto);
+    return await this.userRepository.updateUser(user, updateUserDto);
   }
 
   async remove(id: number): Promise<void> {
